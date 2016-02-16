@@ -12,11 +12,8 @@
 
 @interface NSObject ()
 
-
 - (void)addItem:(id)item;
-
 - (void)_popUpContextMenu:(id)arg1 withEvent:(id)arg2 forView:(id)arg3 withFont:(id)arg4;
-- (void)contextMenu_showInFinder:(id)arg;
 
 @end
 
@@ -29,7 +26,7 @@
     dispatch_once(&onceToken, ^{
         
         [NSClassFromString(@"NSMenu") swizzleWithOriginalSelector:@selector(_popUpContextMenu:withEvent:forView:withFont:) swizzledSelector:@selector(AM_popUpContextMenu:withEvent:forView:withFont:) isClassMethod:NO];
-        [NSClassFromString(@"IDEApplicationCommands") swizzleWithOriginalSelector:@selector(contextMenu_showInFinder:) swizzledSelector:@selector(AM_contextMenu_showInFinder:) isClassMethod:NO];
+
         [NSClassFromString(@"NSMenu") swizzleWithOriginalSelector:@selector(addItem:) swizzledSelector:@selector(AM_addItem:) isClassMethod:NO];
     });
 }
@@ -52,12 +49,6 @@
         actionMenuItem.target = self;
         
     }
-    NSLog(@"AM_addItem! %@ \n", item.title);
-}
-
-- (void)AM_contextMenu_showInFinder:(NSView *)arg
-{
-    [self AM_contextMenu_showInFinder:arg];
 }
 
 - (void)AM_popUpContextMenu:(NSMenu *)arg1 withEvent:(NSEvent *)arg2 forView:(NSView *)arg3 withFont:(id)arg4
@@ -69,8 +60,6 @@
         NSArray<IDEFileReferenceNavigableItem *> *select = [view contextMenuSelectedItems];
         if ([select.firstObject respondsToSelector:@selector(fileURL)]) {
             [[NSUserDefaults standardUserDefaults] setObject:select.firstObject.fileURL.absoluteString forKey:@"AMFilePath"];
-            NSLog(@"Swizzle success! %@ \n%@ \n%@ \n%@\n%@", self, arg1, arg2, arg3, select.firstObject.fileURL.absoluteString);
-            NSLog(@"AM_popUpContextMenu! %@ \n", select );
         }else {
            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"AMFilePath"];
         }
@@ -86,16 +75,18 @@
     //Trim file url string.
     filePath = [filePath stringByReplacingOccurrencesOfString:@"file://" withString:@""];
     filePath = [filePath stringByReplacingOccurrencesOfString:@"/" withString:@"" options:0 range:NSMakeRange(filePath.length-2, 2)];
-    NSLog(@"addMenuItem! %@", filePath);
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyyMMdd-HHmmss"];
+    NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
+
+    NSString *fileName = [filePath.lastPathComponent substringWithRange:NSMakeRange(0, filePath.lastPathComponent.length-4)];
+    NSString *commands = [NSString stringWithFormat:@"mkdir ~/Desktop/AM_Builds;xcrun -sdk iphoneos PackageApplication -v \"%@\" -o ~/Desktop/AM_Builds/%@-%@.ipa;open ~/Desktop/AM_Builds/", filePath, fileName, dateString];
     
     //Excute shell task
     NSTask *task = [[NSTask alloc] init];
     [task setLaunchPath:@"/bin/bash"];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyyMMdd-HHmmss"];
-    NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
-    NSString *fileName = [filePath.lastPathComponent substringWithRange:NSMakeRange(0, filePath.lastPathComponent.length-4)];
-    [task setArguments:@[ @"-c", [NSString stringWithFormat:@"mkdir ~/Desktop/AM_Builds;xcrun -sdk iphoneos PackageApplication -v \"%@\" -o ~/Desktop/AM_Builds/%@-%@.ipa;open ~/Desktop/AM_Builds/", filePath, fileName, dateString]]];
+    [task setArguments:@[ @"-c", commands]];
     [task launch];
     [task waitUntilExit];
     
@@ -107,7 +98,6 @@
     }
     else {
         NSLog(@"Task failed.");
-        
     }
 }
 
