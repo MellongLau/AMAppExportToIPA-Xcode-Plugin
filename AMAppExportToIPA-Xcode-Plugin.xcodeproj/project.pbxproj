@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		242F77671C730DCF005EFFA4 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242F77661C730DCF005EFFA4 /* AppKit.framework */; };
+		242F77691C730DCF005EFFA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242F77681C730DCF005EFFA4 /* Foundation.framework */; };
+		242F776D1C730DCF005EFFA4 /* AMAppExportToIPA-Xcode-Plugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 242F776C1C730DCF005EFFA4 /* AMAppExportToIPA-Xcode-Plugin.xcscheme */; };
+		242F77701C730DCF005EFFA4 /* AMAppExportToIPAXcodePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F776F1C730DCF005EFFA4 /* AMAppExportToIPAXcodePlugin.m */; };
+		242F77731C730DCF005EFFA4 /* NSObject_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F77721C730DCF005EFFA4 /* NSObject_Extension.m */; };
+		242F777C1C730E90005EFFA4 /* NSObject+MethodSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F777B1C730E90005EFFA4 /* NSObject+MethodSwizzler.m */; };
+		242F77801C730F37005EFFA4 /* NSObject+PopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F777F1C730F37005EFFA4 /* NSObject+PopupMenu.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		242F77631C730DCF005EFFA4 /* AMAppExportToIPA-Xcode-Plugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AMAppExportToIPA-Xcode-Plugin.xcplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		242F77661C730DCF005EFFA4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		242F77681C730DCF005EFFA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		242F776C1C730DCF005EFFA4 /* AMAppExportToIPA-Xcode-Plugin.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "AMAppExportToIPA-Xcode-Plugin.xcscheme"; path = "AMAppExportToIPA-Xcode-Plugin.xcodeproj/xcshareddata/xcschemes/AMAppExportToIPA-Xcode-Plugin.xcscheme"; sourceTree = SOURCE_ROOT; };
+		242F776E1C730DCF005EFFA4 /* AMAppExportToIPAXcodePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMAppExportToIPAXcodePlugin.h; sourceTree = "<group>"; };
+		242F776F1C730DCF005EFFA4 /* AMAppExportToIPAXcodePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMAppExportToIPAXcodePlugin.m; sourceTree = "<group>"; };
+		242F77711C730DCF005EFFA4 /* NSObject_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Extension.h; sourceTree = "<group>"; };
+		242F77721C730DCF005EFFA4 /* NSObject_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_Extension.m; sourceTree = "<group>"; };
+		242F77741C730DCF005EFFA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		242F777A1C730E90005EFFA4 /* NSObject+MethodSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MethodSwizzler.h"; sourceTree = "<group>"; };
+		242F777B1C730E90005EFFA4 /* NSObject+MethodSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MethodSwizzler.m"; sourceTree = "<group>"; };
+		242F777D1C730EF4005EFFA4 /* RuntimeHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeHeaders.h; sourceTree = "<group>"; };
+		242F777E1C730F37005EFFA4 /* NSObject+PopupMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PopupMenu.h"; sourceTree = "<group>"; };
+		242F777F1C730F37005EFFA4 /* NSObject+PopupMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PopupMenu.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		242F77611C730DCF005EFFA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				242F77671C730DCF005EFFA4 /* AppKit.framework in Frameworks */,
+				242F77691C730DCF005EFFA4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		242F775A1C730DCF005EFFA4 = {
+			isa = PBXGroup;
+			children = (
+				242F776A1C730DCF005EFFA4 /* AMAppExportToIPA-Xcode-Plugin */,
+				242F77651C730DCF005EFFA4 /* Frameworks */,
+				242F77641C730DCF005EFFA4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		242F77641C730DCF005EFFA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				242F77631C730DCF005EFFA4 /* AMAppExportToIPA-Xcode-Plugin.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		242F77651C730DCF005EFFA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				242F77661C730DCF005EFFA4 /* AppKit.framework */,
+				242F77681C730DCF005EFFA4 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		242F776A1C730DCF005EFFA4 /* AMAppExportToIPA-Xcode-Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				242F776E1C730DCF005EFFA4 /* AMAppExportToIPAXcodePlugin.h */,
+				242F776F1C730DCF005EFFA4 /* AMAppExportToIPAXcodePlugin.m */,
+				242F77711C730DCF005EFFA4 /* NSObject_Extension.h */,
+				242F77721C730DCF005EFFA4 /* NSObject_Extension.m */,
+				242F777A1C730E90005EFFA4 /* NSObject+MethodSwizzler.h */,
+				242F777B1C730E90005EFFA4 /* NSObject+MethodSwizzler.m */,
+				242F777E1C730F37005EFFA4 /* NSObject+PopupMenu.h */,
+				242F777F1C730F37005EFFA4 /* NSObject+PopupMenu.m */,
+				242F777D1C730EF4005EFFA4 /* RuntimeHeaders.h */,
+				242F77741C730DCF005EFFA4 /* Info.plist */,
+				242F776B1C730DCF005EFFA4 /* Supporting Files */,
+			);
+			path = "AMAppExportToIPA-Xcode-Plugin";
+			sourceTree = "<group>";
+		};
+		242F776B1C730DCF005EFFA4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				242F776C1C730DCF005EFFA4 /* AMAppExportToIPA-Xcode-Plugin.xcscheme */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		242F77621C730DCF005EFFA4 /* AMAppExportToIPA-Xcode-Plugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 242F77771C730DCF005EFFA4 /* Build configuration list for PBXNativeTarget "AMAppExportToIPA-Xcode-Plugin" */;
+			buildPhases = (
+				242F775F1C730DCF005EFFA4 /* Sources */,
+				242F77601C730DCF005EFFA4 /* Resources */,
+				242F77611C730DCF005EFFA4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AMAppExportToIPA-Xcode-Plugin";
+			productName = "AMAppExportToIPA-Xcode-Plugin";
+			productReference = 242F77631C730DCF005EFFA4 /* AMAppExportToIPA-Xcode-Plugin.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		242F775B1C730DCF005EFFA4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Tendencystudio;
+				TargetAttributes = {
+					242F77621C730DCF005EFFA4 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 242F775E1C730DCF005EFFA4 /* Build configuration list for PBXProject "AMAppExportToIPA-Xcode-Plugin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 242F775A1C730DCF005EFFA4;
+			productRefGroup = 242F77641C730DCF005EFFA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				242F77621C730DCF005EFFA4 /* AMAppExportToIPA-Xcode-Plugin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		242F77601C730DCF005EFFA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				242F776D1C730DCF005EFFA4 /* AMAppExportToIPA-Xcode-Plugin.xcscheme in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		242F775F1C730DCF005EFFA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				242F77701C730DCF005EFFA4 /* AMAppExportToIPAXcodePlugin.m in Sources */,
+				242F777C1C730E90005EFFA4 /* NSObject+MethodSwizzler.m in Sources */,
+				242F77731C730DCF005EFFA4 /* NSObject_Extension.m in Sources */,
+				242F77801C730F37005EFFA4 /* NSObject+PopupMenu.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		242F77751C730DCF005EFFA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		242F77761C730DCF005EFFA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		242F77781C730DCF005EFFA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = "AMAppExportToIPA-Xcode-Plugin/Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tendencystudio.AMAppExportToIPA-Xcode-Plugin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		242F77791C730DCF005EFFA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = "AMAppExportToIPA-Xcode-Plugin/Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tendencystudio.AMAppExportToIPA-Xcode-Plugin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		242F775E1C730DCF005EFFA4 /* Build configuration list for PBXProject "AMAppExportToIPA-Xcode-Plugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				242F77751C730DCF005EFFA4 /* Debug */,
+				242F77761C730DCF005EFFA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		242F77771C730DCF005EFFA4 /* Build configuration list for PBXNativeTarget "AMAppExportToIPA-Xcode-Plugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				242F77781C730DCF005EFFA4 /* Debug */,
+				242F77791C730DCF005EFFA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 242F775B1C730DCF005EFFA4 /* Project object */;
+}
