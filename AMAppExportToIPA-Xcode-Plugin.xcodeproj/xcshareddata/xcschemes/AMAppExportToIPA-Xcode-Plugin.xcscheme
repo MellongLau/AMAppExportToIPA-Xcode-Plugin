@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
-   version = "2.0">
+   LastUpgradeVersion = "0720"
+   version = "1.3">
    <BuildAction
-      parallelizeBuildables = "NO"
-      buildImplicitDependencies = "NO">
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -14,24 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "890A4B3E171F031300AFE577"
-               BuildableName = "AMAppExportToIPAXcodePlugin.xcplugin"
-               BlueprintName = "AMAppExportToIPAXcodePlugin"
-               ReferencedContainer = "container:AMAppExportToIPAXcodePlugin.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8966AFCA173EB7BF004150C0"
-               BuildableName = "AMAppExportToIPA-Xcode-PluginTests.xctest"
-               BlueprintName = "AMAppExportToIPA-Xcode-PluginTests"
-               ReferencedContainer = "container:AMAppExportToIPAXcodePlugin.xcodeproj">
+               BlueprintIdentifier = "242F77621C730DCF005EFFA4"
+               BuildableName = "AMAppExportToIPA-Xcode-Plugin.xcplugin"
+               BlueprintName = "AMAppExportToIPA-Xcode-Plugin"
+               ReferencedContainer = "container:AMAppExportToIPA-Xcode-Plugin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -53,23 +39,21 @@
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
-      debugDocumentVersioning = "NO"
-      debugXPCServices = "NO"
+      debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "NO"
+      allowLocationSimulation = "YES"
       viewDebuggingEnabled = "No">
       <PathRunnable
          runnableDebuggingMode = "0"
-         BundleIdentifier = "com.apple.dt.Xcode"
          FilePath = "/Applications/Xcode.app">
       </PathRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "890A4B3E171F031300AFE577"
-            BuildableName = "AMAppExportToIPAXcodePlugin.xcplugin"
-            BlueprintName = "AMAppExportToIPAXcodePlugin"
-            ReferencedContainer = "container:AMAppExportToIPAXcodePlugin.xcodeproj">
+            BlueprintIdentifier = "242F77621C730DCF005EFFA4"
+            BuildableName = "AMAppExportToIPA-Xcode-Plugin.xcplugin"
+            BlueprintName = "AMAppExportToIPA-Xcode-Plugin"
+            ReferencedContainer = "container:AMAppExportToIPA-Xcode-Plugin.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -81,6 +65,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "242F77621C730DCF005EFFA4"
+            BuildableName = "AMAppExportToIPA-Xcode-Plugin.xcplugin"
+            BlueprintName = "AMAppExportToIPA-Xcode-Plugin"
+            ReferencedContainer = "container:AMAppExportToIPA-Xcode-Plugin.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
