@@ -9,7 +9,7 @@ AMAppExportToIPA-Xcode-Plugin
 
 </p>
 
-AMAppExportToIPA-Xcode-Plugin is a simple Xcode plugin to export `.app` to `.ipa` file.
+AMAppExportToIPA is a simple Xcode plugin to export `.app` to `.ipa` file.
 
 ## Usage
 
@@ -25,7 +25,7 @@ Install from github.
 
     `$ git clone git@github.com:MellongLau/AMAppExportToIPA-Xcode-Plugin.git`
     
-* Build the AMAppExportToIPA-Xcode-Plugin target in the Xcode project and the plug-in will automatically be installed in `~/Library/Application Support/Developer/Shared/Xcode/Plug-ins`.
+* Build the AMAppExportToIPA target in the Xcode project and the plug-in will automatically be installed in `~/Library/Application Support/Developer/Shared/Xcode/Plug-ins`.
 * Relaunch Xcode.
 
 or
