@@ -3,7 +3,7 @@ AMAppExportToIPA-Xcode-Plugin
 
 <p align="left">
 
-<!-- <a href="https://travis-ci.org/MellongLau/AMAppExportToIPA-Xcode-Plugin"><img src="https://travis-ci.org/MellongLau/AMAppExportToIPA-Xcode-Plugin.svg" alt="Build Status" /></a> -->
+<a href="https://travis-ci.org/MellongLau/AMAppExportToIPA-Xcode-Plugin"><img src="https://travis-ci.org/MellongLau/AMAppExportToIPA-Xcode-Plugin.svg" alt="Build Status" /></a>
 <img src="https://img.shields.io/badge/platform-Xcode%206%2B-blue.svg?style=flat" alt="Platform: Xcode 6+"/>
     <img src="http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat" alt="License: MIT" />
 
