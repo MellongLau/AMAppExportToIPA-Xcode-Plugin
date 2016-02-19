@@ -43,7 +43,7 @@
         if ([menu itemWithTitle:title] != nil)  {
             [menu removeItem:[menu itemWithTitle:title]];
         }
-        SEL selector = [filePath.pathExtension isEqualToString:@"app"]? @selector(addMenuItem:):nil;
+        SEL selector = [filePath.pathExtension isEqualToString:@"app"]? @selector(generateIPA:):nil;
         NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:title action:selector keyEquivalent:@""];
         [menu addItem:actionMenuItem];
         actionMenuItem.target = self;
@@ -68,7 +68,7 @@
     [self AM_popUpContextMenu:arg1 withEvent:arg2 forView:arg3 withFont:arg4]; 
 }
 
-- (void)addMenuItem:(id)arg1 {
+- (void)generateIPA:(id)arg1 {
     
     NSString *filePath = [[NSUserDefaults standardUserDefaults] objectForKey:@"AMFilePath"];
     
@@ -81,7 +81,7 @@
     NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
 
     NSString *fileName = [filePath.lastPathComponent substringWithRange:NSMakeRange(0, filePath.lastPathComponent.length-4)];
-    NSString *commands = [NSString stringWithFormat:@"mkdir ~/Desktop/AM_Builds;xcrun -sdk iphoneos PackageApplication -v \"%@\" -o ~/Desktop/AM_Builds/%@-%@.ipa;open ~/Desktop/AM_Builds/", filePath, fileName, dateString];
+    NSString *commands = [NSString stringWithFormat:@"mkdir ~/Desktop/AM_Builds;xcrun -sdk iphoneos PackageApplication -v \"%@\" -o ~/Desktop/AM_Builds/%@-%@.ipa;open ~/Desktop/AM_Builds/", [self URLDecode:filePath], [[self URLDecode:fileName] stringByReplacingOccurrencesOfString:@" " withString:@"-"], dateString];
     
     //Excute shell task
     NSTask *task = [[NSTask alloc] init];
@@ -101,5 +101,11 @@
     }
 }
 
+- (NSString *)URLDecode:(NSString *)stringToDecode
+{
+    NSString *result = [stringToDecode stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+    result = [result stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    return result;
+}
 
 @end
