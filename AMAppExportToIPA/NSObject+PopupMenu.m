@@ -13,12 +13,14 @@
 
 NSString *const kAMProjectNavigatorContextualMenu = @"Project navigator contextual menu";
 NSString *const kAMExportIPA = @"Export IPA";
-//NSString *const kAMFilePath = @"AMFilePath";
 
 static void *kAMFilePath;
+static void *kAMBuildTask;
 
 @interface NSObject ()
 
+@property (nonatomic, copy) NSString *am_filePath;
+@property (nonatomic, strong) __block NSTask *am_buildTask;
 - (void)addItem:(id)item;
 - (void)_popUpContextMenu:(id)arg1 withEvent:(id)arg2 forView:(id)arg3 withFont:(id)arg4;
 
@@ -42,10 +44,19 @@ static void *kAMFilePath;
     NSString *result = objc_getAssociatedObject(self, &kAMFilePath);
     return result;
 }
-- (void)set_am_filePath:(NSString *)filePath {
-   objc_setAssociatedObject(self, &kAMFilePath, filePath, OBJC_ASSOCIATION_COPY_NONATOMIC);
+
+- (void)setAm_filePath:(NSString *)am_filePath {
+   objc_setAssociatedObject(self, &kAMFilePath, am_filePath, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
+- (NSTask *)am_buildTask {
+    NSTask *result = objc_getAssociatedObject(self, &kAMBuildTask);
+    return result;
+}
+
+- (void)setAm_buildTask:(NSTask *)am_buildTask {
+    objc_setAssociatedObject(self, &kAMBuildTask, am_buildTask, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 //Method call flow:
 //      Init menu:  popUpContextMenu:withEvent:forView:withFont: > addItem:
@@ -67,9 +78,9 @@ static void *kAMFilePath;
         IDENavigatorOutlineView *view = (IDENavigatorOutlineView *)arg3;
         NSArray<IDEFileReferenceNavigableItem *> *select = [view contextMenuSelectedItems];
         if ([select.firstObject respondsToSelector:@selector(fileURL)] && [select.firstObject.fileURL.absoluteString.pathExtension isEqualToString:@"app"]) {
-            [self set_am_filePath:select.firstObject.fileURL.absoluteString];
+            [self setAm_filePath:select.firstObject.fileURL.absoluteString];
         }else {
-           [self set_am_filePath:@""];
+           [self setAm_filePath:@""];
         }
         //If menu exist, then update menu status.
         if ([self.title isEqualToString:kAMProjectNavigatorContextualMenu]) {
@@ -99,38 +110,49 @@ static void *kAMFilePath;
 
 - (void)generateIPA:(id)arg1 {
     
-    NSString *filePath = [self am_filePath];
-    
-    //Trim file url string.
-    filePath = [filePath stringByReplacingOccurrencesOfString:@"file://" withString:@""];
-    filePath = [filePath stringByReplacingOccurrencesOfString:@"/" withString:@"" options:0 range:NSMakeRange(filePath.length-2, 2)];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyyMMdd-HHmmss"];
-    NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
-
-    NSString *fileName = [filePath.lastPathComponent substringWithRange:NSMakeRange(0, filePath.lastPathComponent.length-4)];
-    NSString *commands = [NSString stringWithFormat:@"mkdir ~/Desktop/AM_Builds;xcrun -sdk iphoneos PackageApplication -v \"%@\" -o ~/Desktop/AM_Builds/%@-%@.ipa;open ~/Desktop/AM_Builds/",
-                          [self URLDecode:filePath],
-                          [[self URLDecode:fileName] stringByReplacingOccurrencesOfString:@" " withString:@"-"],
-                          dateString];
-    
-    //Excute shell task
-    NSTask *task = [[NSTask alloc] init];
-    [task setLaunchPath:@"/bin/bash"];
-    [task setArguments:@[ @"-c", commands]];
-    [task launch];
-    [task waitUntilExit];
-    
-    //Launch result
-    int status = [task terminationStatus];
-    
-    if (status == 0) {
-        NSLog(@"Task succeeded.");
-    }
-    else {
-        NSLog(@"Task failed.");
-    }
+    dispatch_queue_t taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+    dispatch_async(taskQueue, ^{
+        int status = 0;
+        @try {
+            NSString *filePath = self.am_filePath;
+            
+            //Trim file url string.
+            filePath = [filePath stringByReplacingOccurrencesOfString:@"file://" withString:@""];
+            filePath = [filePath stringByReplacingOccurrencesOfString:@"/" withString:@"" options:0 range:NSMakeRange(filePath.length-2, 2)];
+            
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyyMMdd-HHmmss"];
+            NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
+            
+            NSString *fileName = [filePath.lastPathComponent substringWithRange:NSMakeRange(0, filePath.lastPathComponent.length-4)];
+            NSString *commands = [NSString stringWithFormat:@"mkdir ~/Desktop/AM_Builds;xcrun -sdk iphoneos PackageApplication -v \"%@\" -o ~/Desktop/AM_Builds/%@-%@.ipa;open ~/Desktop/AM_Builds/",
+                                  [self URLDecode:filePath],
+                                  [[self URLDecode:fileName] stringByReplacingOccurrencesOfString:@" " withString:@"-"],
+                                  dateString];
+            
+            //Excute shell task
+            self.am_buildTask = [[NSTask alloc] init];
+            [self.am_buildTask setLaunchPath:@"/bin/bash"];
+            [self.am_buildTask setArguments:@[ @"-c", commands]];
+            [self.am_buildTask launch];
+            [self.am_buildTask waitUntilExit];
+            
+            //Launch result
+            status = [self.am_buildTask terminationStatus];
+            
+            
+        }@catch (NSException *exception) {
+            NSLog(@"Problem Running Task: %@", [exception description]);
+        }
+        @finally {
+            if (status == 0) {
+                NSLog(@"Task succeeded.");
+            }
+            else {
+                NSLog(@"Task failed.");
+            }
+        }
+    });
 }
 
 - (NSString *)URLDecode:(NSString *)stringToDecode
