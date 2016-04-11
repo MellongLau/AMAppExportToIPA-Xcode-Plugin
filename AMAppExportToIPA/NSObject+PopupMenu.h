@@ -8,6 +8,6 @@
 #import "RuntimeHeaders.h"
 #import <Foundation/Foundation.h>
 
-@interface NSObject (AM_PopupMenu)
+@interface NSMenu (AM_PopupMenu)
 
 @end

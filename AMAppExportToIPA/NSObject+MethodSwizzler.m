@@ -10,7 +10,7 @@
 
 @implementation NSObject (MethodSwizzler)
 
-+ (void)swizzleWithOriginalSelector:(SEL)originalSelector
++ (void)am_swizzleWithOriginalSelector:(SEL)originalSelector
                    swizzledSelector:(SEL) swizzledSelector
                       isClassMethod:(BOOL)isClassMethod
 {
