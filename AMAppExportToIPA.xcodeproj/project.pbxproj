@@ -19,10 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		242F77631C730DCF005EFFA4 /* AMAppExportToIPA.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AMAppExportToIPA.xcplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		242F77631C730DCF005EFFA4 /* AMAppExportToIPA.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMAppExportToIPA.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		242F77661C730DCF005EFFA4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		242F77681C730DCF005EFFA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		242F776C1C730DCF005EFFA4 /* AMAppExportToIPA.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "AMAppExportToIPA.xcscheme"; path = "AMAppExportToIPA.xcodeproj/xcshareddata/xcschemes/AMAppExportToIPA.xcscheme"; sourceTree = SOURCE_ROOT; };
+		242F776C1C730DCF005EFFA4 /* AMAppExportToIPA.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AMAppExportToIPA.xcscheme; path = AMAppExportToIPA.xcodeproj/xcshareddata/xcschemes/AMAppExportToIPA.xcscheme; sourceTree = SOURCE_ROOT; };
 		242F776E1C730DCF005EFFA4 /* AMAppExportToIPAXcodePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMAppExportToIPAXcodePlugin.h; sourceTree = "<group>"; };
 		242F776F1C730DCF005EFFA4 /* AMAppExportToIPAXcodePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMAppExportToIPAXcodePlugin.m; sourceTree = "<group>"; };
 		242F77711C730DCF005EFFA4 /* NSObject_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Extension.h; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 				242F77741C730DCF005EFFA4 /* Info.plist */,
 				242F776B1C730DCF005EFFA4 /* Supporting Files */,
 			);
-			path = "AMAppExportToIPA";
+			path = AMAppExportToIPA;
 			sourceTree = "<group>";
 		};
 		242F776B1C730DCF005EFFA4 /* Supporting Files */ = {
@@ -119,8 +119,8 @@
 			);
 			dependencies = (
 			);
-			name = "AMAppExportToIPA";
-			productName = "AMAppExportToIPA";
+			name = AMAppExportToIPA;
+			productName = AMAppExportToIPA;
 			productReference = 242F77631C730DCF005EFFA4 /* AMAppExportToIPA.xcplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
@@ -262,10 +262,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
-				INFOPLIST_FILE = "AMAppExportToIPA/Info.plist";
+				INFOPLIST_FILE = AMAppExportToIPA/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tendencystudio.AMAppExportToIPA";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tendencystudio.AMAppExportToIPA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xcplugin;
 			};
@@ -277,10 +277,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
-				INFOPLIST_FILE = "AMAppExportToIPA/Info.plist";
+				INFOPLIST_FILE = AMAppExportToIPA/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tendencystudio.AMAppExportToIPA";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tendencystudio.AMAppExportToIPA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xcplugin;
 			};
