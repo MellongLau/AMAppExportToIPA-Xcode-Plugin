@@ -21,6 +21,8 @@ static void *kAMBuildTask;
 
 @property (nonatomic, copy) NSString *am_filePath;
 @property (nonatomic, strong) __block NSTask *am_buildTask;
+
+
 - (void)addItem:(id)item;
 - (void)_popUpContextMenu:(id)arg1 withEvent:(id)arg2 forView:(id)arg3 withFont:(id)arg4;
 
@@ -110,6 +112,15 @@ static void *kAMBuildTask;
 
 - (void)generateIPA:(id)arg1 {
     
+    NSProgressIndicator* indicator = [[NSProgressIndicator alloc] init];
+    [indicator setStyle:NSProgressIndicatorSpinningStyle];
+    NSWindowController *currentWindowController = [[NSApp keyWindow] windowController];
+    if ([currentWindowController isKindOfClass:NSClassFromString(@"IDEWorkspaceWindowController")]) {
+        [currentWindowController.window.contentView addSubview:indicator];
+        [indicator setFrame:NSMakeRect(currentWindowController.window.contentView.frame.size.width/2.0, currentWindowController.window.contentView.frame.size.height/2.0, 30, 30)];
+        [indicator startAnimation:self];
+    }
+    
     dispatch_queue_t taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
     dispatch_async(taskQueue, ^{
         int status = 0;
@@ -139,12 +150,21 @@ static void *kAMBuildTask;
             
             //Launch result
             status = [self.am_buildTask terminationStatus];
-            
+
             
         }@catch (NSException *exception) {
             NSLog(@"Problem Running Task: %@", [exception description]);
         }
         @finally {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSWindowController *currentWindowController = [[NSApp keyWindow] windowController];
+                if ([currentWindowController isKindOfClass:NSClassFromString(@"IDEWorkspaceWindowController")]) {
+                    
+                    [indicator stopAnimation:self];
+                    [indicator removeFromSuperview];
+                }
+            });
+            
             if (status == 0) {
                 NSLog(@"Task succeeded.");
             }
