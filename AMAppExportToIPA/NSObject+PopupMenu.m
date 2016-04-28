@@ -136,10 +136,14 @@ static void *kAMBuildTask;
             NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
             
             NSString *fileName = [filePath.lastPathComponent substringWithRange:NSMakeRange(0, filePath.lastPathComponent.length-4)];
-            NSString *commands = [NSString stringWithFormat:@"mkdir ~/Desktop/AM_Builds;xcrun -sdk iphoneos PackageApplication -v \"%@\" -o ~/Desktop/AM_Builds/%@-%@.ipa;open ~/Desktop/AM_Builds/",
-                                  [self URLDecode:filePath],
-                                  [[self URLDecode:fileName] stringByReplacingOccurrencesOfString:@" " withString:@"-"],
-                                  dateString];
+            NSString *decodeFilePath = [self URLDecode:filePath];
+            NSString *targetFileName = [[self URLDecode:fileName] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+            
+            NSString *targetFilePath = [NSString stringWithFormat:@"~/Desktop/AM_Builds/%@-%@.ipa", targetFileName, dateString];
+            NSString *commands = [NSString stringWithFormat:@"mkdir ~/Desktop/AM_Builds;xcrun -sdk iphoneos PackageApplication -v \"%@\" -o %@;open -R %@",
+                                  decodeFilePath,
+                                  targetFilePath,
+                                  targetFilePath];
             
             //Excute shell task
             self.am_buildTask = [[NSTask alloc] init];
