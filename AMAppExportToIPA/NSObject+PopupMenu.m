@@ -139,16 +139,20 @@ static void *kAMBuildTask;
             NSString *decodeFilePath = [self URLDecode:filePath];
             NSString *targetFileName = [[self URLDecode:fileName] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
             
-            NSString *targetFilePath = [NSString stringWithFormat:@"~/Desktop/AM_Builds/%@-%@.ipa", targetFileName, dateString];
-            NSString *commands = [NSString stringWithFormat:@"mkdir ~/Desktop/AM_Builds;xcrun -sdk iphoneos PackageApplication -v \"%@\" -o %@;open -R %@",
-                                  decodeFilePath,
-                                  targetFilePath,
-                                  targetFilePath];
+            NSString *targetFilePath = [NSString stringWithFormat:@"%@-%@.ipa", targetFileName, dateString];
             
+            NSString* shellPath =
+            [[NSBundle bundleForClass:NSClassFromString(@"AMAppExportToIPAXcodePlugin")] pathForResource:@"Script"
+                                                             ofType:@"sh"];
+//            NSString *commands = [NSString stringWithFormat:@"mkdir ~/Desktop/AM_Builds;xcrun -sdk iphoneos PackageApplication -v \"%@\" -o %@;open -R %@",
+//                                  decodeFilePath,
+//                                  targetFilePath,
+//                                  targetFilePath];
+//            
             //Excute shell task
             self.am_buildTask = [[NSTask alloc] init];
             [self.am_buildTask setLaunchPath:@"/bin/bash"];
-            [self.am_buildTask setArguments:@[ @"-c", commands]];
+            [self.am_buildTask setArguments:@[shellPath, decodeFilePath, targetFilePath]];
             [self.am_buildTask launch];
             [self.am_buildTask waitUntilExit];
             

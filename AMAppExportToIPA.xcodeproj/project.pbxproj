@@ -16,6 +16,8 @@
 		242F77801C730F37005EFFA4 /* NSObject+PopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F777F1C730F37005EFFA4 /* NSObject+PopupMenu.m */; };
 		244D1FC31C731BDA00AE7959 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 244D1FC11C731BDA00AE7959 /* LICENSE */; };
 		244D1FC41C731BDA00AE7959 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 244D1FC21C731BDA00AE7959 /* README.md */; };
+		24C4F27D1CD881E1000EEA5A /* Script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 24C4F27C1CD87EB0000EEA5A /* Script.sh */; };
+		24C4F2811CD88DF1000EEA5A /* template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24C4F2801CD88DF1000EEA5A /* template.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		242F777F1C730F37005EFFA4 /* NSObject+PopupMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PopupMenu.m"; sourceTree = "<group>"; };
 		244D1FC11C731BDA00AE7959 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		244D1FC21C731BDA00AE7959 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		24C4F27C1CD87EB0000EEA5A /* Script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Script.sh; sourceTree = "<group>"; };
+		24C4F2801CD88DF1000EEA5A /* template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = template.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 				242F777E1C730F37005EFFA4 /* NSObject+PopupMenu.h */,
 				242F777F1C730F37005EFFA4 /* NSObject+PopupMenu.m */,
 				242F777D1C730EF4005EFFA4 /* RuntimeHeaders.h */,
+				24C4F2801CD88DF1000EEA5A /* template.plist */,
+				24C4F27C1CD87EB0000EEA5A /* Script.sh */,
 				242F77741C730DCF005EFFA4 /* Info.plist */,
 				242F776B1C730DCF005EFFA4 /* Supporting Files */,
 			);
@@ -160,6 +166,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24C4F2811CD88DF1000EEA5A /* template.plist in Resources */,
+				24C4F27D1CD881E1000EEA5A /* Script.sh in Resources */,
 				244D1FC31C731BDA00AE7959 /* LICENSE in Resources */,
 				242F776D1C730DCF005EFFA4 /* AMAppExportToIPA.xcscheme in Resources */,
 			);
