@@ -75,6 +75,7 @@ static void *kAMBuildTask;
 
 - (void)am_popUpContextMenu:(NSMenu *)arg1 withEvent:(NSEvent *)arg2 forView:(NSView *)arg3 withFont:(id)arg4
 {
+    [self am_popUpContextMenu:arg1 withEvent:arg2 forView:arg3 withFont:arg4];
     if ([arg3 isKindOfClass:NSClassFromString(@"IDENavigatorOutlineView")]) {
 
         IDENavigatorOutlineView *view = (IDENavigatorOutlineView *)arg3;
@@ -89,7 +90,7 @@ static void *kAMBuildTask;
             [self addExportIPAMenuItemWithMenu:arg1];
         }
     }
-    [self am_popUpContextMenu:arg1 withEvent:arg2 forView:arg3 withFont:arg4];
+
     
 }
 
