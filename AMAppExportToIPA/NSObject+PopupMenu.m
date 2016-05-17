@@ -75,6 +75,7 @@ static void *kAMBuildTask;
 
 - (void)am_popUpContextMenu:(NSMenu *)arg1 withEvent:(NSEvent *)arg2 forView:(NSView *)arg3 withFont:(id)arg4
 {
+    
     if ([arg3 isKindOfClass:NSClassFromString(@"IDENavigatorOutlineView")]) {
 
         IDENavigatorOutlineView *view = (IDENavigatorOutlineView *)arg3;
@@ -85,12 +86,12 @@ static void *kAMBuildTask;
            [self setAm_filePath:@""];
         }
         //If menu exist, then update menu status.
-        if ([self.title isEqualToString:kAMProjectNavigatorContextualMenu]) {
+        if ([self.title isEqualToString:kAMProjectNavigatorContextualMenu] && arg1.itemArray.count > 0 ) {
             [self addExportIPAMenuItemWithMenu:arg1];
         }
     }
-    [self am_popUpContextMenu:arg1 withEvent:arg2 forView:arg3 withFont:arg4];
-    
+
+   [self am_popUpContextMenu:arg1 withEvent:arg2 forView:arg3 withFont:arg4];
 }
 
 - (void)addExportIPAMenuItemWithMenu:(NSMenu *)menu
@@ -165,12 +166,9 @@ static void *kAMBuildTask;
         }
         @finally {
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSWindowController *currentWindowController = [[NSApp keyWindow] windowController];
-                if ([currentWindowController isKindOfClass:NSClassFromString(@"IDEWorkspaceWindowController")]) {
-                    
-                    [indicator stopAnimation:self];
-                    [indicator removeFromSuperview];
-                }
+                
+                [indicator stopAnimation:self];
+                [indicator removeFromSuperview];
             });
             
             if (status == 0) {
