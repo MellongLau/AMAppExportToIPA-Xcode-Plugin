@@ -162,12 +162,9 @@ static void *kAMBuildTask;
         }
         @finally {
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSWindowController *currentWindowController = [[NSApp keyWindow] windowController];
-                if ([currentWindowController isKindOfClass:NSClassFromString(@"IDEWorkspaceWindowController")]) {
-                    
-                    [indicator stopAnimation:self];
-                    [indicator removeFromSuperview];
-                }
+                
+                [indicator stopAnimation:self];
+                [indicator removeFromSuperview];
             });
             
             if (status == 0) {
