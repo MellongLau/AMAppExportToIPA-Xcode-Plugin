@@ -55,7 +55,7 @@ After upgrade your Xcode, you may need to run below shell script to add your cur
 ## More
 Learn more? Follow my `WeChat` public account `mellong`:
 
-![WeChat QRcode](http://www.devlong.com/blogImages/qrcode_for_mellong.jpg)
+![WeChat QRcode](http://blog.devlong.com/blogImages/qrcode_for_mellong.jpg)
 
 ## License
 
