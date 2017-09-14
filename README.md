@@ -13,9 +13,15 @@ AMAppExportToIPA is a simple Xcode plugin to export `.app` to `.ipa` file.
 
 **Note:** Please update to v1.1 in order to avoid conflicts with other plug-ins.
 
+**Clicked Export to IPA without any response in Xcode 8.3+?**  
+This is because Xcode 8.3 have removed PackageApplication, you can copy this component from the earlier Xcode, the following link is the detail of this temporary fix:  
+[www.jianshu.com/p/88bb51cba34d](www.jianshu.com/p/88bb51cba34d)
+
 > *AMAppExportToIPA 是一款可以让你在Xcode的project navigator界面中直接右键点击xxx.app -> Export IPA就可以生成对应的IPA文件的Xcode插件。*
 
 > **注意:** 请更新到v1.1以避免和其他Xcode插件冲突。
+
+**Xcode8.3+可能会点击生成IPA没有任何反应，这是因为Xcode 8.3已经移除了 PackageApplication，你可以自行从旧版本的Xcode拷贝这个插件，具体方法请参考：  [http://www.jianshu.com/p/88bb51cba34d](http://www.jianshu.com/p/88bb51cba34d)**
 
 > **如果觉得这款插件不错的话请点击右上角的star和推荐给你的朋友，如果想即时了解到我的最新消息，请拉到底部扫描二维码关注我的公众号**
 
